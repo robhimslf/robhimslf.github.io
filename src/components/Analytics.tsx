@@ -8,7 +8,8 @@ import packageJson from '../../package.json';
  * Defines properties allowed on this component.
  */
 interface IProps {
-    overrides?: FieldsObject;
+    reportOptions?: FieldsObject;
+    initializeOptions?: InitializeOptions;
 }
 
 /**
@@ -16,8 +17,20 @@ interface IProps {
  * 
  * @param {IProps}
  */
-const Analytics: FC<IProps> = ({ overrides }) => {
+const Analytics: FC<IProps> = ({ initializeOptions, reportOptions }) => {
     const { pathname, search } = useLocation();
+
+    /**
+     * Initializes Google Analytics for traffic analysis.
+     */
+    const initialize = () => {
+        if ( !( window as any ).ga ) {
+            ReactGA.initialize( GoogleTrackingId, {
+                debug: IsGoogleTrackingDebug,
+                ...initializeOptions
+            });
+        }
+    };
 
     /**
      * Sends information about the current page view to Google Analytics.
@@ -35,14 +48,17 @@ const Analytics: FC<IProps> = ({ overrides }) => {
             location: url,
             appName: packageJson.name,
             appVersion: packageJson.version,
-            ...overrides
+            ...reportOptions
         });
+
+        ReactGA.pageview( page );
     };
 
     /**
      * On component mount, send the initial page view.
      */
     useEffect(() => {
+        initialize();
         send( pathname, search );
     }, [] );
 
@@ -55,18 +71,6 @@ const Analytics: FC<IProps> = ({ overrides }) => {
     }, [ pathname, search ]);
 
     return null;
-};
-
-/**
- * Initializes Google Analytics for traffic analysis.
- * 
- * @param {InitializeOptions} options 
- */
-export const initializeAnalytics = ( options?: InitializeOptions ): void => {
-    ReactGA.initialize( GoogleTrackingId, {
-        debug: IsGoogleTrackingDebug,
-        ...options
-    });
 };
 
 export default Analytics;
