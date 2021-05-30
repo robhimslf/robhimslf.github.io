@@ -1,0 +1,28 @@
+.theme-select {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    position: absolute;
+    top: 0.5rem;
+    right: 0.5rem;
+    z-index: 100;
+    opacity: 0.6;
+    transition: opacity .5s cubic-bezier(.1,.82,.25,1);
+
+    .theme-text {
+        color: rgb(var(--color-0));
+        margin-right: 0.5rem;
+        text-transform: uppercase;
+        font-size: 0.875rem;
+        letter-spacing: 2px;
+    }
+
+    .theme-toggle {
+        font-size: 1.5rem;
+        color: rgb(var(--accent));
+    }
+
+    &:hover {
+        opacity: 1;
+    }
+}

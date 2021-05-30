@@ -1,0 +1,19 @@
+@import '../../../styles/mixins';
+
+.bg-img-layer {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+
+    background-size: cover;
+    background-position: left top;
+    background-repeat: no-repeat;
+}
+
+@include medium {
+    .bg-img-layer {
+        width: 120%;
+    }
+}

@@ -1,0 +1,21 @@
+@import '../../../styles/mixins';
+
+.avatar-img {
+    width: 200px;
+    height: 200px;
+    left: 50%;
+    object-fit: cover;
+    object-position: top;  
+    position: absolute;
+    right: 0;
+    transform-origin: top right;
+    border-radius: 50%;
+    z-index: 2;
+}
+
+@include medium {
+    .avatar-img {
+        width: 150px;
+        height: 150px;
+    }
+}

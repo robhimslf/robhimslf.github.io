@@ -1,0 +1,29 @@
+:root {
+    --background-0: 17,17,17;
+    --background-1: 25,25,25;
+
+    --color-0: 206,206,206;
+
+    --color-icon: 78,78,78;
+    --accent: 3,155,229;
+}
+
+[data-theme="dark"] {
+    --background-0: 17,17,17;
+    --background-1: 25,25,25;
+
+    --color-0: 206,206,206;
+
+    --color-icon: 78,78,78;
+    --accent: 3,155,229;
+}
+
+[data-theme="light"] {
+    --background-0: 93,93,93;
+    --background-1: 140,140,140;
+
+    --color-0: 42,42,42;
+
+    --color-icon: 193,193,193;
+    --accent: 120,61,168;
+}
