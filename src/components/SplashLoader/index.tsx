@@ -43,7 +43,6 @@ const SplashLoader: FC<ComponentPropsWithoutRef<any>> = ({ children }) => {
      */
     const incrementLoaded = () => {
         loadedItems.current = loadedItems.current + 1;
-        console.debug( '[load] :: incrementLoaded :: now has', loadedItems.current );
     };
 
     /**
@@ -52,9 +51,7 @@ const SplashLoader: FC<ComponentPropsWithoutRef<any>> = ({ children }) => {
      * 
      * @param {boolean} showImmediate 
      */
-    const complete = ( showImmediate?: boolean ) => {
-        console.debug( '[load] :: complete' );
-        
+    const complete = ( showImmediate?: boolean ) => {        
         // Background images should be loaded without impacting the splash loader
         // progress.
         const images: HTMLImageElement[] = [];
@@ -117,8 +114,6 @@ const SplashLoader: FC<ComponentPropsWithoutRef<any>> = ({ children }) => {
      */
     const load = () => {
 
-        console.debug( '[load] :: start' );
-
         // Dynamic image loading.
         const images = Array.from( document.images );
         const contextImages = getContextPaths( SiteImages );
@@ -132,8 +127,6 @@ const SplashLoader: FC<ComponentPropsWithoutRef<any>> = ({ children }) => {
         // Track item count, which is a count of the images we need to load plus
         // the number of views we need to load.
         totalItems.current = images.length + 1;
-
-        console.debug( '[load] :: expect total', totalItems.current );
 
         // If all images are loaded, immediately halt and complete the splash
         // loader.

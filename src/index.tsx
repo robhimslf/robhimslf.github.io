@@ -5,7 +5,6 @@ import './styles/app.scss';
 import './utils/icons';
 import App from './App';
 import { store } from './store';
-import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
     <React.StrictMode>
@@ -15,5 +14,3 @@ ReactDOM.render(
     </React.StrictMode>,
     document.getElementById( 'root' )
 );
-
-reportWebVitals( console.log );
