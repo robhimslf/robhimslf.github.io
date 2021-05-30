@@ -12,6 +12,7 @@ jobs:
     
     env:
       RH_FONTAWESOME_TOKEN: ${{ secrets.RH_FONTAWESOME_TOKEN }}
+      CI: ''
 
     strategy:
       matrix:
