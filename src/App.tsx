@@ -1,7 +1,7 @@
 import { FC, lazy, Suspense, useEffect } from 'react';
 import { connect, ConnectedProps } from 'react-redux';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import Analytics, { initializeAnalytics } from './components/Analytics';
+import Analytics from './components/Analytics';
 import AnimatedDiv from './components/AnimatedDiv';
 import SplashLoader from './components/SplashLoader';
 import { applyTheme, IGlobalState } from './store';
@@ -34,13 +34,9 @@ const App: FC<IProps> = ( props ) => {
     const { theme } = props.settings;
 
     /**
-     * On component mount, initialize Google Analytics and apply the stored
-     * color theme.
+     * On component mount, apply the stored color theme.
      */
     useEffect(() => {
-        if ( !( window as any ).ga )
-            initializeAnalytics();
-
         applyTheme( theme );
     }, [] );
 
