@@ -8,9 +8,6 @@ const ProfileLinks: FC = () => (
         <a href={ GithubProfileUrl } className="profile-link" target="blank">
             <FontAwesomeIcon fixedWidth icon={[ 'fab', 'github' ]} />
         </a>
-        <a href={ FacebookProfileUrl } className="profile-link" target="blank">
-            <FontAwesomeIcon fixedWidth icon={[ 'fab', 'facebook' ]} />
-        </a>
         <a href={ `mailto:${EmailAddress}` } className="profile-link" target="blank">
             <FontAwesomeIcon fixedWidth icon={[ 'far', 'envelope' ]} />
         </a>
